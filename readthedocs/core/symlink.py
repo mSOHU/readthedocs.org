@@ -244,7 +244,16 @@ class Symlink(object):
                   HOME/user_builds/<project>/rtd-builds/latest/
         """
         default_version = self.project.get_default_version()
-        self._log("Symlinking single_version")
+        version = None
+
+        try:
+            versions_qs = ((self.project.versions.protected(only_active=False)
+                            .filter(built=True)) |
+                           self.project.versions.protected(only_active=True))
+            version = versions_qs.get(slug=default_version)
+            self._log("Symlinking single_version: {0}". version.slug)
+        except Version.DoesNotExist:
+            pass
 
         symlink = self.project_root
         if os.path.islink(symlink):
@@ -253,8 +262,10 @@ class Symlink(object):
             shutil.rmtree(symlink)
 
         # Where the actual docs live
-        docs_dir = os.path.join(settings.DOCROOT, self.project.slug, 'rtd-builds', default_version)
-        run('ln -nsf %s/ %s' % (docs_dir, symlink))
+        if version is not None:
+            docs_dir = os.path.join(settings.DOCROOT, self.project.slug,
+                                    'rtd-builds', version.slug)
+            run('ln -nsf %s/ %s' % (docs_dir, symlink))
 
     def symlink_versions(self):
         """Symlink project's versions
