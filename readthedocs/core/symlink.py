@@ -60,6 +60,7 @@ from collections import OrderedDict
 
 from django.conf import settings
 
+from readthedocs.builds.models import Version
 from readthedocs.projects.constants import LOG_TEMPLATE
 from readthedocs.projects.models import Domain
 from readthedocs.projects.utils import run
