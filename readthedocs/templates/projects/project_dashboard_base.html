@@ -8,7 +8,7 @@
 {% block dash-nav-projects %}active{% endblock %}
 
 {% block content %}
-  {% url "projects_import" as projects_import_url %}
+  {% url "projects_import_manual" as projects_import_url %}
   {% url "socialaccount_connections" as social_accounts %}
 
   <!-- BEGIN your projects list -->
@@ -124,25 +124,6 @@
       </form>
     </div>
     <!-- END search form -->
-
-    <!-- BEGIN social account onboard -->
-    {% get_social_accounts request.user as accounts %}
-    {% if not accounts.github.0 %}
-      <div class="module onboard onboard-accounts">
-        <h3>Connect your Accounts</h3>
-
-        <p>
-          {% blocktrans %}
-            Have a GitHub account? Connect your account and import your existing projects automatically.
-          {% endblocktrans %}
-        </p>
-
-        <form method="get" action="{{ social_accounts }}">
-          <input type="submit" value="Connect to GitHub" />
-        </form>
-      </div>
-    {% endif %}
-    <!-- END social account onboard -->
 
     {% block dashboard-onboard-extra %}
     {% endblock %}

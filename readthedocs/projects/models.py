@@ -162,11 +162,11 @@ class Project(models.Model):
 
     # Sphinx specific build options.
     enable_epub_build = models.BooleanField(
-        _('Enable EPUB build'), default=True,
+        _('Enable EPUB build'), default=False,
         help_text=_(
             'Create a EPUB version of your documentation with each build.'))
     enable_pdf_build = models.BooleanField(
-        _('Enable PDF build'), default=True,
+        _('Enable PDF build'), default=False,
         help_text=_(
             'Create a PDF version of your documentation with each build.'))
 
@@ -210,13 +210,13 @@ class Project(models.Model):
                                            max_length=255, blank=True)
     privacy_level = models.CharField(
         _('Privacy Level'), max_length=20, choices=constants.PRIVACY_CHOICES,
-        default=getattr(settings, 'DEFAULT_PRIVACY_LEVEL', 'public'),
+        default=getattr(settings, 'DEFAULT_PRIVACY_LEVEL', 'protected'),
         help_text=_("(Beta) Level of privacy that you want on the repository. "
                     "Protected means public but not in listings."))
     version_privacy_level = models.CharField(
         _('Version Privacy Level'), max_length=20,
         choices=constants.PRIVACY_CHOICES, default=getattr(
-            settings, 'DEFAULT_PRIVACY_LEVEL', 'public'),
+            settings, 'DEFAULT_PRIVACY_LEVEL', 'protected'),
         help_text=_("(Beta) Default level of privacy you want on built "
                     "versions of documentation."))
 
