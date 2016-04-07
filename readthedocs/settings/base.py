@@ -68,18 +68,7 @@ TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
     ('en', gettext('English')),
-    ('es', gettext('Spanish')),
-    ('nb', gettext('Norwegian Bokmål')),
-    ('fr', gettext('French')),
-    ('ru', gettext('Russian')),
-    ('de', gettext('German')),
-    ('gl', gettext('Galician')),
-    ('vi', gettext('Vietnamese')),
     ('zh-cn', gettext('Chinese')),
-    ('zh-tw', gettext('Taiwanese')),
-    ('ja', gettext('Japanese')),
-    ('uk', gettext('Ukrainian')),
-    ('it', gettext('Italian')),
 )
 LOCALE_PATHS = [
     os.path.join(SITE_ROOT, 'readthedocs', 'locale'),
@@ -117,6 +106,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
     # `allauth` specific authentication methods, such as login by e-mail
