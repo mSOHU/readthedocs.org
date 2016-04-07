@@ -105,36 +105,4 @@
     {% endif %}
   </div>
   <!-- END your projects list -->
-
-  <!-- BEGIN project side bar -->
-  <div class="col-minor project-dashboard-right">
-
-    <!-- BEGIN search form -->
-    <div class="module search search-dashboard">
-      <form action="{% url 'search' %}" method="GET">
-        <div class="text-input-wrapper search search-dashboard">
-          <input type="text" name="q" class="search">
-          {% if type %}
-            <input type="hidden" name="type" value="{{ type }}">
-          {% endif %}
-          {% if taxonomy %}
-            <input type="hidden" name="taxonomy" value="{{ taxonomy }}">
-          {% endif %}
-        </div>
-      </form>
-    </div>
-    <!-- END search form -->
-
-    {% block dashboard-onboard-extra %}
-    {% endblock %}
-
-    <div class="module info info-docs">
-      <h3>Learn More</h3>
-      <p>
-        Check out the <a href="http://docs.readthedocs.org/en/latest/index.html">documentation for Read the Docs</a>.
-        It contains lots of information about how to get the most out of RTD.
-      </p>
-    </div>
-  </div>
-  <!-- END project side bar -->
 {% endblock %}
