@@ -75,3 +75,4 @@ git+https://github.com/alex/django-taggit.git#egg=django_taggit-dev
 
 python-ldap
 django_auth_ldap
+giturlparse

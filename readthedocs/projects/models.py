@@ -13,6 +13,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
+import giturlparse
 from guardian.shortcuts import assign
 from taggit.managers import TaggableManager
 
@@ -350,6 +351,15 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('projects_detail', args=[self.slug])
+
+    def get_owner(self):
+        return giturlparse.parse(self.repo).owner
+
+    def get_gitlab_url(self):
+        parsed = giturlparse.parse(self.repo)
+        return 'http://%s/%s/%s' % (
+            parsed.domain, parsed.owner, parsed.repo,
+        )
 
     def get_docs_url(self, version_slug=None, lang_slug=None, private=None):
         """Return a url for the docs
