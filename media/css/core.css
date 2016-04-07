@@ -50,7 +50,8 @@ table { margin-bottom: 15px; }
 p { margin-bottom: 15px; }
 pre { margin: 15px 0; white-space: pre; overflow: auto; }
 pre, code, tt { font-family: "inconsolata", "inconsolata-1", "inconsolata-2", 'bitstream vera sans mono', 'andale mono', 'lucida console', monospace; line-height: 20px; }
-textarea, input, select { font-family: "inconsolata", "inconsolata-1", "inconsolata-2", 'bitstream vera sans mono', 'andale mono', 'lucida console', monospace; font-size: 16px; line-height: 20px; }
+textarea, input, select { font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace, "inconsolata", "inconsolata-1", "inconsolata-2", 'bitstream vera sans mono', 'andale mono', 'lucida console', monospace; font-size: 16px; line-height: 20px; }
+input[type="text"][name="basics-repo"] {width: 400px}
 
 @font-face {
   font-family: 'FontAwesome';
@@ -75,7 +76,7 @@ form p label { font-weight: normal; }
 form p.required label { font-weight: bold; }
 textarea, input, button, .button, select { display: block; padding: 5px; color: #444; background-color: #fff; border: 1px solid #BFBFBF; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 textarea, input, .button { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.5) inset; -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.5) inset; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
-input[type="text"], input[type="password"] { width: 250px; height: 20px; margin-bottom: 5px; background: #fff; }
+input[type="text"], input[type="password"] { width: 400px; height: 20px; margin-bottom: 5px; background: #fff; }
 input::-webkit-input-placeholder { color: #ccc; }
 input:-moz-placeholder { color: #ccc; opacity: 1; }
 input::-moz-placeholder { color: #ccc; opacity: 1; }
