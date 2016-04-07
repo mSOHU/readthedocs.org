@@ -1195,7 +1195,12 @@ msgstr ""
 #: templates/account/login.html:7 templates/account/login.html.py:11
 #: templates/account/login.html:22
 msgid "Sign In"
-msgstr "登录"
+msgstr "LDAP登录"
+
+#: templates/account/login.html:7 templates/account/login.html.py:11
+#: templates/account/login.html:22
+msgid "LDAP Sign In"
+msgstr "LDAP登录"
 
 #: templates/account/login.html:13
 #, python-format
