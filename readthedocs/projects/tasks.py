@@ -5,6 +5,7 @@ rebuilding documentation.
 """
 
 import os
+import time
 import shutil
 import json
 import logging
@@ -295,9 +296,14 @@ class UpdateDocsTask(Task):
         self.build_env.update_build(state=BUILD_STATE_INSTALLING)
 
         self.python_env.delete_existing_build_dir()
-        self.python_env.setup_base()
-        self.python_env.install_core_requirements()
-        self.python_env.install_user_requirements()
+
+        core_install_mark = os.path.join(self.python_env.venv_path(), '.core_installed')
+        if not os.path.exists(core_install_mark):
+            self.python_env.setup_base()
+            self.python_env.install_core_requirements()
+            with open(core_install_mark, 'wb') as fp:
+                fp.write(time.ctime())
+        # self.python_env.install_user_requirements()
         self.python_env.install_package()
 
     def build_docs(self):
