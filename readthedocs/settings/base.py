@@ -64,7 +64,7 @@ FORCE_WWW = False
 DOCKER_ENABLE = False
 DOCKER_IMAGE = 'rtfd-build'
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Asia/Shanghai'
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
     ('en', gettext('English')),
